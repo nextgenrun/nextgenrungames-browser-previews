@@ -40,3 +40,7 @@ Credits and applicable third-party terms remain with the packaged material. No b
 [Spirestorm's full Steam release is Coming Soon](https://store.steampowered.com/app/5308920/). Its demo review is separate. Flingkeep's Steam store and demo remain in Valve review as checked on 3 October 2026.
 
 [NextGenRunGames](https://www.nextgen.run/) · Repository and release copy prepared by the authorized studio assistant.
+
+## Slipstream Moto
+
+[Play the motorcycle gameplay slice](https://nextgenrun.github.io/nextgenrungames-browser-previews/slipstream-moto/) on desktop or a touch screen. Build 0.2.0 has one bike, one coastal highway and a 60-second score run. Its [standalone ZIP](slipstream-moto/slipstream-moto-standalone-0.2.0.zip) is 340,544 bytes. [Controls, credits and SHA-256](slipstream-moto/README.md). Desktop and emulated touch flows were checked; physical-phone play remains unverified.
