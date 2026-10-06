@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-state="loading">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172d33">
+  <meta name="description" content="A one-minute motorcycle run along the coast. Open the throttle, thread the traffic, find your line.">
+  <title>Slipstream Moto</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23172d33'/%3E%3Cpath d='M36 8 16 36h15l-5 20 23-29H34z' fill='%23ff874d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game-stage">
+  <canvas id="road" aria-label="3D motorcycle highway"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="impact" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="wordmark" href="#" id="brand" aria-label="Slipstream Moto, main menu">
+      <svg viewBox="0 0 28 36" aria-hidden="true"><path d="M17 1 1 22h12L9 35l18-23H16z"/></svg>
+      <span>SLIPSTREAM<small>M O T O</small></span>
+    </a>
+    <div class="top-actions">
+      <button id="sound" class="icon-button" aria-label="Mute sound (M)" title="Mute sound (M)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="sound-waves" d="M16 8q5 4 0 8M18 5q8 7 0 14"/></svg>
+      </button>
+      <button id="camera" class="icon-button game-action" aria-label="Switch to chase camera (C)" title="Switch camera (C)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h5l2-3h5l2 3h4v13H3z"/><circle cx="12" cy="13" r="4"/></svg>
+      </button>
+      <button id="pause" class="icon-button game-action" aria-label="Pause (P)" title="Pause (P)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section id="loading" class="loading" aria-live="polite">
+    <span class="eyebrow">THE COAST IS CALLING</span>
+    <h1>SLIPSTREAM<span>MOTO</span></h1>
+    <div class="loading-track"><div id="loading-fill"></div></div>
+    <p id="loading-label">Warming up the engine…</p>
+  </section>
+
+  <section id="menu" class="menu" hidden>
+    <div class="menu-shade" aria-hidden="true"></div>
+    <div class="menu-content">
+      <div class="eyebrow"><span class="orange-line"></span> 01 / THE COASTAL RUN</div>
+      <h1>THREAD<br>THE <em>TRAFFIC.</em></h1>
+      <p class="menu-intro">One bike. One minute.<br>Find your line.</p>
+      <button id="start" class="primary">RIDE OUT <span aria-hidden="true">↗</span></button>
+      <div class="control-guide desktop-guide">
+        <span><kbd>W</kbd> THROTTLE</span><span><kbd>A</kbd><kbd>D</kbd> STEER</span><span><kbd>SPACE</kbd> BRAKE</span>
+      </div>
+      <p class="touch-guide">Hold the pedals. Steer with the arrows.</p>
+      <p class="risk-tip">Close passes above <strong>100 km/h</strong> build your combo.<br>A collision ends the run.</p>
+      <div class="menu-options"><button id="motion" class="text-button" aria-pressed="false">Reduce camera motion</button><span>BEST <b id="menu-best">0</b></span></div>
+    </div>
+    <div class="location-tag"><span class="location-dot"></span> NORTH COAST <span>17:42</span></div>
+  </section>
+
+  <div id="hud" class="hud" hidden>
+    <div class="score-block"><span class="eyebrow">RUN SCORE</span><strong id="score">0</strong><div id="combo" class="combo" hidden>×2 CLOSE PASS</div></div>
+    <div class="timer-block"><span class="eyebrow">TIME LEFT</span><strong id="timer">60.0<span>s</span></strong><div class="time-track"><div id="time-fill"></div></div></div>
+    <div class="speed-block"><div class="speed-number"><strong id="speed">058</strong><span>KM/H</span></div><div class="rev-track"><div id="rev-fill"></div></div><span class="distance-readout"><b id="distance">0.00</b> KM <span id="gear">GEAR 2</span></span></div>
+    <div class="ride-hint desktop-guide"><kbd>H</kbd> HORN <span>·</span> <kbd>C</kbd> VIEW <span>·</span> <kbd>P</kbd> PAUSE</div>
+  </div>
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <div id="count-in" class="count-in" aria-live="polite"></div>
+
+  <section id="pause-panel" class="modal" hidden aria-labelledby="pause-title">
+    <div class="modal-card"><span class="eyebrow">TAKE A BREATH</span><h2 id="pause-title">ENGINE IDLE.</h2><p>The road will wait for you.</p><button id="resume" class="primary">KEEP RIDING <span aria-hidden="true">↗</span></button><button id="pause-menu" class="secondary">BACK TO GARAGE</button></div>
+  </section>
+  <section id="result" class="modal" hidden aria-labelledby="result-title">
+    <div class="modal-card result-card">
+      <span id="result-kicker" class="eyebrow">END OF THE LINE</span>
+      <h2 id="result-title">TOO CLOSE.</h2>
+      <p id="result-note">Leave yourself a way out.</p>
+      <div class="result-score"><span>RUN SCORE</span><strong id="result-score">0</strong><span id="best-note">BEST 0</span></div>
+      <div class="result-stats"><div><strong id="result-distance">0.00</strong><span>KILOMETRES</span></div><div><strong id="result-passes">0</strong><span>OVERTAKES</span></div><div><strong id="result-close">0</strong><span>CLOSE PASSES</span></div></div>
+      <button id="retry" class="primary">ANOTHER RUN <span aria-hidden="true">↗</span></button>
+      <button id="result-menu" class="secondary">BACK TO GARAGE</button>
+    </div>
+  </section>
+
+  <div id="touch-controls" class="touch-controls" aria-label="Ride controls">
+    <div class="touch-steering"><button data-control="left" class="touch-button steer-button" aria-label="Steer left">‹</button><button data-control="right" class="touch-button steer-button" aria-label="Steer right">›</button></div>
+    <div class="touch-pedals"><button data-control="brake" class="touch-button brake-button" aria-label="Brake"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M12 5v14M18 5v14"/></svg><span>BRAKE</span></button><button data-control="throttle" class="touch-button throttle-button" aria-label="Throttle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 15 7-7 7 7M5 20l7-7 7 7"/></svg><span>GAS</span></button></div>
+  </div>
+  <script type="module" src="./crazygames.js"></script>
+  </main>
+</body>
+</html>
