@@ -1,0 +1,304 @@
+Debt & Daylight sound credits
+
+The game includes these approved Ogg derivatives. Audio was converted for game use.
+
+Coins_Single_26.wav
+Creator: LittleRobotSoundFactory
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/LittleRobotSoundFactory/sounds/276219/
+Packaged clip: reward-01-freesound-276219.ogg
+
+Coins_Several_09.wav
+Creator: LittleRobotSoundFactory
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/LittleRobotSoundFactory/sounds/276187/
+Packaged clip: reward-02-freesound-276187.ogg
+
+Coins_Several_08.wav
+Creator: LittleRobotSoundFactory
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/LittleRobotSoundFactory/sounds/276186/
+Packaged clip: reward-03-freesound-276186.ogg
+
+Coins_Few_03.wav
+Creator: LittleRobotSoundFactory
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/LittleRobotSoundFactory/sounds/276168/
+Packaged clip: reward-04-freesound-276168.ogg
+
+Clinking Coins 2
+Creator: AleXZavesa
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/AleXZavesa/sounds/853707/
+Packaged clip: reward-05-freesound-853707.ogg
+
+Coin7
+Creator: The-Sacha-Rush
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/The-Sacha-Rush/sounds/336934/
+Packaged clip: reward-06-freesound-336934.ogg
+
+tossed coin 5.wav
+Creator: rundog
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/rundog/sounds/623077/
+Packaged clip: reward-07-freesound-623077.ogg
+
+Coins33.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573373/
+Packaged clip: reward-08-freesound-573373.ogg
+
+Coins31.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573371/
+Packaged clip: reward-09-freesound-573371.ogg
+
+Coins32.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573370/
+Packaged clip: reward-10-freesound-573370.ogg
+
+Coins13.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573361/
+Packaged clip: reward-11-freesound-573361.ogg
+
+Coins21.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573354/
+Packaged clip: reward-12-freesound-573354.ogg
+
+Coins24.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573353/
+Packaged clip: reward-13-freesound-573353.ogg
+
+Coins23.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573352/
+Packaged clip: reward-14-freesound-573352.ogg
+
+Coins29.wav
+Creator: doudar41
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/doudar41/sounds/573350/
+Packaged clip: reward-15-freesound-573350.ogg
+
+Button Clicking 1
+Creator: Sheyvan
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/Sheyvan/sounds/475188/
+Packaged clip: reward-16-freesound-475188.ogg
+
+VS Button Click 02.mp3
+Creator: Vilkas_Sound
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/Vilkas_Sound/sounds/707039/
+Packaged clip: reward-17-freesound-707039.ogg
+
+VS Button Click 01.mp3
+Creator: Vilkas_Sound
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/Vilkas_Sound/sounds/707038/
+Packaged clip: reward-18-freesound-707038.ogg
+
+VS Button Click 03.mp3
+Creator: Vilkas_Sound
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/Vilkas_Sound/sounds/707040/
+Packaged clip: reward-19-freesound-707040.ogg
+
+VS Button Click 04.mp3
+Creator: Vilkas_Sound
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/Vilkas_Sound/sounds/707041/
+Packaged clip: reward-20-freesound-707041.ogg
+
+VS Button Click 05.mp3
+Creator: Vilkas_Sound
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/Vilkas_Sound/sounds/707042/
+Packaged clip: reward-21-freesound-707042.ogg
+
+button 30.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107150/
+Packaged clip: reward-22-freesound-107150.ogg
+
+button 24.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107143/
+Packaged clip: reward-23-freesound-107143.ogg
+
+button 22.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107141/
+Packaged clip: reward-24-freesound-107141.ogg
+
+button 15.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107133/
+Packaged clip: reward-25-freesound-107133.ogg
+
+button 11.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107129/
+Packaged clip: reward-26-freesound-107129.ogg
+
+button 5.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107152/
+Packaged clip: reward-27-freesound-107152.ogg
+
+button 4.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107151/
+Packaged clip: reward-28-freesound-107151.ogg
+
+button 3.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107149/
+Packaged clip: reward-29-freesound-107149.ogg
+
+button 2.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107138/
+Packaged clip: reward-30-freesound-107138.ogg
+
+button 28.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107147/
+Packaged clip: reward-31-freesound-107147.ogg
+
+button 27.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107146/
+Packaged clip: reward-32-freesound-107146.ogg
+
+button 19.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107137/
+Packaged clip: reward-33-freesound-107137.ogg
+
+button 1.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107127/
+Packaged clip: reward-34-freesound-107127.ogg
+
+button 12.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107130/
+Packaged clip: reward-35-freesound-107130.ogg
+
+button 18.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107136/
+Packaged clip: reward-36-freesound-107136.ogg
+
+button 10.wav
+Creator: bubaproducer
+License: CC-BY-4.0 https://creativecommons.org/licenses/by/4.0/
+Source: https://freesound.org/people/bubaproducer/sounds/107128/
+Packaged clip: reward-37-freesound-107128.ogg
+
+Videogame Menu BUTTON CLICK
+Creator: Christopherderp
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/Christopherderp/sounds/342200/
+Packaged clip: reward-38-freesound-342200.ogg
+
+UI_button1.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/343015/
+Packaged clip: reward-39-freesound-343015.ogg
+
+UI_Correct_button5.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/343000/
+Packaged clip: reward-40-freesound-343000.ogg
+
+UI_Correct_button1.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/342999/
+Packaged clip: reward-41-freesound-342999.ogg
+
+UI_Correct_button7.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/343004/
+Packaged clip: reward-42-freesound-343004.ogg
+
+UI_Correct_button3.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/343002/
+Packaged clip: reward-43-freesound-343002.ogg
+
+UI_Correct_button4.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/343001/
+Packaged clip: reward-44-freesound-343001.ogg
+
+UI_Correct_button10.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/342998/
+Packaged clip: reward-45-freesound-342998.ogg
+
+UI_Correct_button6.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/343005/
+Packaged clip: reward-46-freesound-343005.ogg
+
+UI_Correct_button11.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/342997/
+Packaged clip: reward-47-freesound-342997.ogg
+
+UI_Correct_button12.wav
+Creator: ZenithInfinitiveStudios
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/ZenithInfinitiveStudios/sounds/342996/
+Packaged clip: reward-48-freesound-342996.ogg
+
+Sci-fi button click
+Creator: dotY21
+License: CC0-1.0 http://creativecommons.org/publicdomain/zero/1.0/
+Source: https://freesound.org/people/dotY21/sounds/322228/
+Packaged clip: reward-49-freesound-322228.ogg
+
+User Interface Clicks and Buttons 1.wav
+Creator: original_sound
+License: CC-BY-3.0 http://creativecommons.org/licenses/by/3.0/
+Source: https://freesound.org/people/original_sound/sounds/493551/
+Packaged clip: reward-50-freesound-493551.ogg
+

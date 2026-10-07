@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#102329"><title>Spirestorm</title><link rel="icon" href="assets/interface-v1/icons/spire.svg"><link rel="stylesheet" href="launch.css"><script src="launch-1.js" defer></script></head>
+<body data-mode="boot">
+<section id="boot-menu" class="boot-menu" aria-label="Spirestorm title screen">
+ <div class="boot-world" aria-hidden="true">
+ </div>
+ <img class="boot-clouds far" src="assets/runtime/boot/storm-mist.webp" alt="" draggable="false">
+ <div class="boot-stormlight" aria-hidden="true"></div>
+ <div class="boot-veil" aria-hidden="true"></div>
+ <img class="boot-knight" src="assets/runtime/boot/knight.webp" alt="" width="1024" height="1536" fetchpriority="high" draggable="false">
+ <img class="boot-clouds near" src="assets/runtime/boot/storm-mist.webp" alt="" draggable="false">
+ <div id="boot-embers" class="boot-embers" aria-hidden="true"></div>
+ <div class="boot-content">
+  <h1 class="sr-only">Spirestorm</h1>
+  <div class="boot-crest" aria-hidden="true"><img src="assets/runtime/boot/spirestorm-logo.webp" alt="" width="1536" height="1024" fetchpriority="high" draggable="false"></div>
+  <p class="boot-motto">RISE. STRIKE. RISE AGAIN.</p>
+  <nav class="boot-actions" aria-label="Title menu">
+   <button id="boot-play" class="baked-button" data-frame="13,125,329,118" aria-label="Play" disabled></button>
+   <button id="boot-settings" class="baked-button" data-frame="348,125,328,118" aria-label="Settings"></button>
+  <button id="boot-credits" class="baked-button" data-frame="683,125,329,118" aria-label="Credits"></button>
+  </nav>
+  <button id="boot-costumes" class="boot-costume-button" type="button">SKINS · COMING SOON</button>
+  <a class="boot-wishlist wishlist-link" data-wishlist href="https://store.steampowered.com/app/5308920/?utm_source=playgama&utm_medium=demo&utm_campaign=spirestorm&utm_content=boot_menu" target="_blank" rel="noopener noreferrer" hidden>Wishlist now</a>
+  <p id="boot-journey" class="boot-journey"></p>
+  <div id="boot-loading" class="boot-loading" role="status"><p id="boot-load-label">Opening the spire…</p><div><i id="boot-progress"></i></div><button id="boot-retry" class="boot-retry" hidden>Retry loading</button></div>
+ </div>
+ <footer class="boot-footer"><span>A LITTLE KNIGHT.<br>A MUCH BIGGER WORLD.</span><span class="boot-shortcuts">M · SOUND</span><button id="boot-fullscreen">FULLSCREEN <kbd>SHIFT + F</kbd></button></footer>
+</section>
+<dialog id="boot-credits-dialog" class="boot-credits-dialog" aria-labelledby="boot-credits-title">
+ <button class="close-button" data-close="boot-credits-dialog" aria-label="Close credits">×</button>
+ <h2 id="boot-credits-title">SPIRESTORM</h2><p>A small knight. An impossible climb.</p>
+ <h3>Art & atmosphere</h3><p>Original knight, engraved crest, storm spire and layered mist created for Spirestorm with image generation. Baked menu buttons are reused from the owner-approved Understar UI library.</p>
+ <h3>Sound & inspiration</h3><p>Music and effects from the approved Dig Game sound library. An original tower-climbing action game inspired by Knightmare Tower’s launch, dive and rebound loop.</p>
+ <p><a href="CREDITS.md" target="_blank" rel="noopener">Full game credits</a> · <a href="AUDIO-CREDITS.md" target="_blank" rel="noopener">Audio credits</a></p>
+ <button class="secondary" data-close="boot-credits-dialog">BACK TO THE TITLE</button>
+</dialog>
+
+<dialog id="costume-studio-dialog" class="costume-studio-dialog" aria-labelledby="costume-studio-title">
+ <button class="close-button" data-close="costume-studio-dialog" aria-label="Close costume studio">×</button>
+ <div class="modal-heading"><div><span class="eyebrow">MAKE THE ASCENT YOURS</span><h2 id="costume-studio-title">Extra skins. <em>Coming soon.</em></h2><p>Your classic Ember Knight is active. Extra skins are coming soon.</p></div></div>
+ <section class="studio-preview" aria-live="polite">
+  <span id="studio-preview" class="costume-icon" aria-hidden="true"></span>
+  <div><span class="eyebrow">SELECTED OUTFIT</span><h3 id="studio-costume-name"></h3><p id="studio-costume-desc"></p><small id="studio-unlock-note"></small></div>
+ </section>
+ <div class="studio-actions" aria-label="Coming soon skin controls">
+  <button id="studio-previous" class="secondary" type="button">← PREVIOUS</button>
+  <button id="studio-generate" class="primary" type="button">COMING SOON</button>
+  <button id="studio-next" class="secondary" type="button">NEXT →</button>
+ </div>
+ <div id="studio-costume-grid" class="costume-grid studio-costume-grid" aria-label="Skin collection"></div>
+ <div class="studio-footer"><span>Your base knight is active. Extra skins are coming soon.</span><button id="studio-equip" class="primary" type="button">WEAR THIS LOOK</button></div>
+</dialog>
+
+<canvas id="game" tabindex="0" aria-label="Spirestorm arena. Steer with mouse or A and D. Hold Space or left mouse to dive; release to take a successful rebound. A dive missing every enemy rebounds and brings lava closer; missing near the fire ends the run. Hold right mouse or F to brake. Press 3 for your starting jump; Gale mastery upgrades it to three charges. Q and E slash sideways and share a short recovery. W or middle mouse strikes upward. A clean hit gives brief contact protection. Optional rings reverse downward motion strongly upward. Enemies can drop rare hearts; collect each to restore one life. There is no height-based healing. Near lava, press 3 or land a rebound within the last-chance window. Keys 1 and 2 cast unlocked skills. Key 4 casts unlocked Bladestorm. Escape pauses."></canvas>
+<div class="edge-shade" aria-hidden="true"></div>
+<div id="damage-veil" class="damage-veil hidden" aria-hidden="true"></div>
+<div id="damage-callout" class="damage-callout hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+<div id="levelup-feedback" class="levelup-feedback hidden" role="status" aria-live="polite" aria-atomic="true"><span class="levelup-kicker">LEVEL UP</span><div class="levelup-medal"><strong id="levelup-number"></strong></div><span id="levelup-points" class="levelup-points"></span></div>
+<header class="hud">
+ <button class="brand" id="title-button" aria-label="Return to title" title="Return to title"><span class="brand-mark">ϟ</span><span>SPIRESTORM<small id="chapter-label">ASCENSION</small></span></button>
+ <div class="run-hud hidden" id="run-hud"><span id="hearts" aria-label="4 health">♥ ♥ ♥ ♥</span><span class="ward hidden" id="ward" title="Aegis ward ready">◈</span><div class="hud-divider"></div><strong id="altitude">000 <small>m</small></strong><div class="hud-divider"></div><span class="gold">◆ <b id="gold">0</b></span></div>
+ <nav aria-label="Game controls"><button id="difficulty-button" class="difficulty-chip" aria-label="Change difficulty">HARD</button><button id="sound-button" class="icon-button" aria-label="Sound and music" title="Sound and music · M to mute">♪</button><button id="fullscreen-button" class="icon-button" aria-label="Enter fullscreen" title="Fullscreen · Shift + F">⛶</button><button id="pause-button" class="icon-button hidden" aria-label="Pause game" title="Pause · Esc">Ⅱ</button></nav>
+</header>
+<div class="chapter-progress hidden" id="chapter-progress" role="progressbar" aria-label="Realm ascent" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"><i id="height-fill"></i><span id="route-markers" aria-hidden="true"></span></div>
+<div class="loading screen hidden" id="loading"><span class="eyebrow">A LITTLE KNIGHT. A MUCH BIGGER WORLD.</span><h1>SPIRESTORM</h1><p id="loading-text">Lighting the spire…</p><div class="load-track"><i id="loading-fill"></i></div><button id="retry-load" class="secondary hidden">RETRY ARTWORK</button></div>
+<section id="difficulty-screen" class="difficulty-screen screen hidden" aria-label="Choose difficulty">
+ <div class="difficulty-intro"><span class="eyebrow">EVERY ASCENT BEGINS WITH A CHOICE</span><h2>How fierce is<br><em>your fire?</em></h2><p>Higher altitudes bring stronger foes and faster attacks. Your gold, levels, and talents carry across modes.</p></div>
+ <div id="difficulty-options" class="difficulty-options" aria-label="Difficulty options"></div>
+ <div class="difficulty-footer"><span id="difficulty-note"></span><button id="confirm-difficulty" class="primary">ENTER THE SPIRE <span>↑</span></button></div>
+</section>
+<section class="home screen hidden" id="home" aria-label="Main menu">
+ <div class="home-content"><div class="eyebrow"><span></span> YOUR HOME BETWEEN THE STORMS.</div><h1>THE TRAVELLING<br><em>HAVEN.</em></h1><p class="lede">Rest. Forge. Raise the lift.<br>The town climbs with you.</p><button class="primary" id="begin-button">BEGIN ASCENT <span>↑</span></button><div class="home-actions"><button id="forge-button" class="secondary">THE FORGE <span id="home-bank">◆ 0</span></button><button id="talents-button" class="secondary">ARCHIVE <span id="home-talents">◇ 1</span></button><button id="lookout-button" class="secondary">LOOKOUT · ROUTE</button></div><div class="home-minor"><button id="trials-button" class="text-button">BOSS TRIALS ↗</button><button id="guide-button" class="text-button">FIELD GUIDE</button><button id="contracts-button" class="text-button">CONTRACTS ↗</button><span id="home-level">LEVEL 1</span></div><p id="town-bulletin" class="town-bulletin"></p><button id="challenge-button" class="secondary circuit-button" hidden>DAWN CIRCUIT · DEFEND THE DAWN ↑</button><small id="challenge-note" class="challenge-note" hidden></small></div>
+ <div class="realm-picker"><div><span class="eyebrow">FOUR UPGRADES. THEN THE GUARDIAN.</span><strong id="realm-title">I · The Hollow Spire</strong><p id="realm-subtitle">Where a little courage begins.</p><small id="realm-route"></small><progress id="camp-progress" value="0" max="500"></progress><div class="camp-purchase"><span id="camp-cost"></span></div><small id="camp-note"></small></div><div class="realm-dots" id="realm-dots" aria-label="The ten connected realms"></div></div>
+ <div class="home-bottom"><span><kbd>A</kbd> <kbd>D</kbd> or mouse to steer <i>·</i> Hold <kbd>SPACE / LMB</kbd> dive · <kbd>RMB / F</kbd> brake / slow fall · <kbd>Q / E</kbd> side · <kbd>W / MMB</kbd> up</span><span id="home-record">A fresh spark</span></div>
+</section>
+<section id="realm-intro" class="realm-intro hidden" aria-label="Realm introduction"><div class="intro-rule"></div><span class="eyebrow" id="intro-chapter"></span><h2 id="intro-name"></h2><p id="intro-route"></p><button id="skip-intro" class="text-button">READY YOUR BLADE <span>SPACE ↵</span></button></section>
+<section id="charge-screen" class="center-screen hidden"><div class="eyebrow">MAKE AN ENTRANCE</div><h2>Catch the <em>spark.</em></h2><p>Launch when the needle meets the gold.</p><div class="launch-meter"><div></div><i id="launch-needle"></i></div><button id="launch-button" class="primary">LAUNCH <span>↑</span></button><span class="small-note">Click or press Space</span><span id="launch-upgrade-note" class="small-note"></span></section>
+<div id="expedition-route" class="expedition-route hidden"></div><div class="play-overlay hidden" id="play-overlay">
+ <p id="journey-hud" class="journey-hud" hidden></p><p id="encounter-hud" class="encounter-hud" hidden></p><div class="boss-hud hidden" id="boss-hud"><span id="boss-name"></span><em id="boss-epithet"></em><div><i id="boss-fill"></i></div><small id="boss-phase">PHASE I</small><p id="boss-rhythm"></p></div>
+ <div class="streak" id="streak"><strong id="combo-count">0</strong><span>HIT STREAK</span><div class="momentum-track" role="meter" aria-label="Momentum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="momentum-meter"><i id="momentum-fill"></i></div><small id="momentum-label">BUILD MOMENTUM</small></div>
+ <div class="ability-hud"><div class="level-hud"><span id="run-level">LV 1</span><b id="run-xp">+0 XP</b></div><div class="xp-track"><i id="run-xp-fill"></i></div><div class="rush-title"><span id="rush-label">EMBER RUSH</span><b id="rush-count">0 / 10</b></div><div class="rush-track"><i id="rush-fill"></i></div></div>
+ <div class="actionbar" id="actionbar" aria-label="Combat skills"><div id="skill-slots"></div><span id="quickcast-label">Q / E · SIDE SLASH</span></div><div class="play-tip" id="play-tip">Get above a monster.<br><b>Hold Space / LMB to dive ↓</b></div><div id="lava-warning" class="lava-warning hidden">▲ THE FIRE IS CLOSE</div>
+</div>
+<section id="refuge-screen" class="refuge-screen hidden" aria-label="Return bell decision">
+ <div class="refuge-panel"><span id="refuge-label" class="eyebrow"></span><h2>How high is<br><em>high enough?</em></h2><p id="refuge-health"></p>
+ <div class="refuge-choices"><div><span class="eyebrow">BRING IT HOME</span><strong class="refuge-gold">◆ <b id="refuge-haul">0</b></strong><p id="refuge-bonus"></p><button id="extract-button" class="primary">BANK & RETURN <span>↓</span></button></div>
+ <div><span class="eyebrow" id="refuge-next"></span><strong class="refuge-risk-title">A little higher.</strong><p id="refuge-risk"></p><button id="higher-button" class="secondary">RISK IT · CLIMB HIGHER ↑</button></div></div><p id="refuge-survey" class="refuge-survey"></p></div>
+</section><section id="pause-screen" class="center-screen glass hidden"><div class="eyebrow">EVEN KNIGHTS NEED A MOMENT</div><h2>Hold that<br><em>thought.</em></h2><button id="resume-button" class="primary">RESUME ASCENT <span>↑</span></button><button id="bank-return-button" class="text-button">Abandon climb · lose carried gold</button><a class="text-button wishlist-link" data-wishlist href="https://store.steampowered.com/app/5308920/?utm_source=playgama&utm_medium=demo&utm_campaign=spirestorm&utm_content=esc_menu" target="_blank" rel="noopener noreferrer" hidden>Wishlist now</a><div class="pause-controls"><kbd>A / D</kbd> steer &nbsp; hold <kbd>SPACE / LMB</kbd> dive · hold <kbd>RMB / F</kbd> brake / slow fall<br>Release to stop / rebound · <kbd>Q / E</kbd> slash + lift on hit<br><kbd>W / MMB</kbd> strike upward · a hit adds lift + brief protection<br><kbd>3</kbd> jump · up to 3 charges &nbsp; <kbd>1 / 2</kbd> unlocked skills · <kbd>4</kbd> Bladestorm<br><kbd>M</kbd> sound &nbsp; <kbd>SHIFT + F</kbd> fullscreen</div></section>
+<section id="result-screen" class="center-screen glass hidden"><span class="result-mark" id="result-mark">✦</span><div id="result-label" class="eyebrow">THE EMBERS REMAIN</div><h2 id="result-title">One more<br><em>ascent?</em></h2><p id="result-reason"></p><aside id="boss-recap" class="boss-recap" hidden><strong id="boss-recap-name"></strong><small id="boss-recap-read"></small><p id="boss-recap-lesson"></p><span id="boss-recap-progress"></span><button id="boss-recap-practice" class="text-button">PRACTISE THIS ENCOUNTER ↗</button></aside><p id="result-progress" class="result-progress"></p><p class="result-forge-goal" id="result-goal"></p><div class="result-stats"><div><b id="result-height"></b><span>HEIGHT</span></div><div><b id="result-gold"></b><span id="result-gold-label">GOLD BANKED</span></div><div><b id="result-combo"></b><span>BEST STREAK</span></div><div><b id="result-xp"></b><span id="result-xp-label">XP KEPT</span></div></div><button id="continue-button" class="primary">RISE AGAIN <span>↑</span></button><div class="result-actions"><button id="result-talents-button" class="text-button">TALENTS ↗</button><button id="result-forge-button" class="text-button">VISIT THE FORGE ↗</button><button id="result-contracts-button" class="text-button">CONTRACTS ↗</button><button id="home-button" class="text-button">RETURN TO THE HAVEN</button></div></section>
+<dialog id="contracts-dialog" class="collection-dialog contracts-dialog" aria-labelledby="contracts-title"><button class="close-button" data-close="contracts-dialog" aria-label="Close contracts">×</button><span class="eyebrow">THREE GOALS FOR THE NEXT ASCENT</span><h2 id="contracts-title">A knight’s <em>contracts.</em></h2><p>Progress survives a fall. Claim completed contracts here for banked gold and XP; new goals take their place.</p><small id="contract-count"></small><div id="contract-cards" class="contract-cards"></div><p id="contract-unlocks"></p></dialog>
+<dialog id="talent-dialog" class="talent-dialog collection-dialog" aria-labelledby="talent-title">
+ <button class="close-button" data-close="talent-dialog" aria-label="Close talents">×</button>
+ <div class="talent-heading"><div><span class="eyebrow">GOLD FOR YOUR GEAR. EXPERIENCE FOR YOUR LEGEND.</span><h2 id="talent-title">Written in <em>embers.</em></h2></div><div class="talent-level"><strong id="talent-level">LEVEL 1</strong><span id="talent-xp"></span><div class="xp-track"><i id="talent-xp-fill"></i></div></div><div class="talent-points"><strong id="talent-points">1</strong><span>POINTS TO SPEND</span></div></div>
+ <nav id="talent-branches" class="talent-branches" aria-label="Talent paths"></nav>
+ <div class="talent-layout"><div class="tree-scroll" id="tree-scroll"><div id="talent-tree" class="talent-tree"></div></div><aside class="talent-detail" id="talent-detail" aria-live="polite"></aside></div>
+ <div class="talent-footer"><span id="talent-message" role="status">1 point per level. 1 point learns a full talent. No repeated ranks.</span><button id="reset-talents" class="text-button">REWEAVE · FREE AT CAMP</button></div>
+</dialog>
+<dialog id="forge-dialog" class="collection-dialog" aria-labelledby="forge-title"><button class="close-button" data-close="forge-dialog" aria-label="Close forge">×</button><div class="modal-heading"><div><span class="eyebrow">MAKE THE NEXT ASCENT YOUR OWN</span><h2 id="forge-title">The ember <em>forge.</em></h2></div><div class="wallet"><span>IN YOUR SATCHEL</span><strong>◆ <b id="forge-bank">0</b></strong></div></div><section class="forged-equipment" aria-label="Current equipment stats"><canvas id="equipment-preview" width="340" height="296" aria-label="Classic knight with your equipment stats"></canvas><div><h3>Your equipment</h3><div class="equipment-slots"><div><span>BLADE</span><strong id="equipment-weapon"></strong><small id="equipment-weapon-rank"></small></div><div><span>ARMOR</span><strong id="equipment-armor"></strong><small id="equipment-armor-rank"></small></div></div><p id="equipment-appearance-note"></p></div><button class="equipment-equip-button" id="equip-forged" type="button" hidden>EQUIP FORGED LOOK</button></section><nav id="forge-tabs" class="tabs" aria-label="Upgrade categories"></nav><div id="upgrade-grid" class="upgrade-grid"></div><div class="outfit-heading"><div><h3>Extra skins are coming soon.</h3><p id="costume-note">Classic knight. Equipment upgrades improve your stats.</p></div><span id="rank-total"></span></div><div id="costume-grid" class="costume-grid"></div><div class="modal-footer"><span id="forge-message" aria-live="polite">Every upgrade stays with you.</span><button class="secondary" id="forge-done">BACK TO THE TOWER ↑</button></div></dialog>
+<dialog id="trials-dialog" class="collection-dialog" aria-labelledby="trials-title"><button class="close-button" data-close="trials-dialog" aria-label="Close boss trials">×</button><div class="modal-heading"><div><span class="eyebrow">TEN GUARDIANS. TEN MINIBOSSES.</span><h2 id="trials-title">Meet your <em>match.</em></h2><p>All four skills are unlocked in this loaner kit. Uses your selected difficulty; Easy includes one fire rescue. Practice awards no gold or XP. Learn a phrase, find its opening, then try it again.</p><label class="trial-phase-control"><input id="trial-phase-two" type="checkbox"> Practise phase II · start at half boss health</label></div></div><h3>Final guardians</h3><div id="boss-grid" class="boss-grid"></div><h3 class="miniboss-heading">Minibosses · learn their openings</h3><div id="miniboss-grid" class="boss-grid"></div></dialog>
+<dialog id="guide-dialog" class="collection-dialog" aria-labelledby="guide-title"><button class="close-button" data-close="guide-dialog" aria-label="Close field guide">×</button><div class="modal-heading"><div><span class="eyebrow">KNOW WHAT GOES BUMP IN THE SPIRE</span><h2 id="guide-title">A knight’s <em>field notes.</em></h2><p>Mint diamonds mark breakable props; a glowing root returns a pulse. Pale dashed rings mark copies, while the solid gold marker marks the real guardian. Returned projectiles carry a mint trail; hostile shots have coral outlines. Get above your target. Watch for attack flashes. Guarded enemies open up between defenses. W or middle mouse strikes upward: a clean hit adds lift and briefly lets you pass through that enemy. Empty upward swings and guarded hits add no lift. Q and E share a 0.42-second recovery. A dive that misses every enemy rebounds strongly and brings the lava closer; missing when the fire is already too close ends the run. Release dive before trying again. Optional side rings reverse a fall strongly upward, then accelerate without stopping combat. Hold the brake to stay with enemies. Enemies can drop a rare heart: collect it to restore one life. Height, supply bells and boss victories give no automatic healing. Combat earns lift progress: qualifying returns advance one stop automatically. Lava stays paused below an active boss encounter.</p></div></div><div id="enemy-grid" class="enemy-grid"></div></dialog>
+<dialog id="lookout-dialog" class="engineer-dialog" aria-labelledby="lookout-title"><button class="close-button" data-close="lookout-dialog" aria-label="Close lookout">×</button><span class="eyebrow">THE ROAD ABOVE</span><h2 id="lookout-title">The lookout.</h2><p id="lookout-next"></p><div class="lookout-actions"><button id="lookout-guide" class="secondary">FIELD GUIDE</button><button id="lookout-trials" class="primary">PRACTISE BOSS TRIALS</button></div><div id="lookout-route" class="lookout-route"></div></dialog>
+<dialog id="audio-dialog" class="audio-dialog" aria-labelledby="audio-title">
+ <button class="close-button" data-close="audio-dialog" aria-label="Close audio settings">×</button>
+ <span class="eyebrow">SET THE MOOD</span><h2 id="audio-title">The sound of <em>ascent.</em></h2>
+ <p id="audio-note"></p><div class="mix-controls"><label class="mix-row" for="audio-master"><span>Master volume</span><output id="audio-master-value"></output><input id="audio-master" type="range" min="0" max="100" step="1" aria-label="Master volume"></label>
+<label class="mix-row" for="audio-music"><span>Music</span><output id="audio-music-value"></output><input id="audio-music" type="range" min="0" max="100" step="1" aria-label="Music"></label>
+<label class="mix-row" for="audio-effects"><span>Sound effects</span><output id="audio-effects-value"></output><input id="audio-effects" type="range" min="0" max="100" step="1" aria-label="Sound effects"></label>
+<label class="mix-row" for="audio-ambience"><span>Wind & weather</span><output id="audio-ambience-value"></output><input id="audio-ambience" type="range" min="0" max="100" step="1" aria-label="Wind & weather"></label></div>
+ <div class="menu-motion-setting"><label for="menu-motion">Title screen animation<input id="menu-motion" type="checkbox" checked></label><small id="menu-motion-note"></small></div>
+ <div class="audio-footer"><button id="mute-all" class="secondary" aria-pressed="false">MUTE ALL</button><button class="primary" data-close="audio-dialog">DONE</button></div>
+ <a class="audio-credits" href="AUDIO-CREDITS.md" target="_blank" rel="noopener">Audio credits ↗</a>
+</dialog>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<div class="touch-controls hidden" id="touch-controls"><button id="left-button" aria-label="Steer left">←</button><button id="touch-slash" aria-label="Hold to dive downward; release to stop">HOLD ↓</button><button id="touch-hover" aria-label="Hold to gradually brake and slow your fall">BRAKE</button><button id="right-button" aria-label="Steer right">→</button></div>
+<output id="game-status" class="sr-only" aria-live="off">Loading the tower.</output>
+
+
+<script src="launch-2.js"></script>
+
+
+
+<script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script><script src="launch-3.js"></script><script>window.SpirestormPlaygama.launch();</script>
+</body></html>
+
