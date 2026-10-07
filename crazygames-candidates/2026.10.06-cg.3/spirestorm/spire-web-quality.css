@@ -1,0 +1,10 @@
+#boot-costumes{display:none!important}
+body[data-first-play-tips="true"] #play-tip{display:none!important}
+#web-coach{position:fixed;z-index:35;left:50%;bottom:175px;transform:translateX(-50%);display:flex;gap:12px;align-items:center;width:min(560px,calc(100% - 32px));padding:12px 14px;background:#102b35ed;border:1px solid #99cdc8;border-radius:8px;box-shadow:0 4px 20px #0006;color:#edf3df;pointer-events:none;font:13px/1.35 system-ui}
+#web-coach[hidden],#web-art-loading[hidden]{display:none}
+#web-coach strong{font:700 11px/1.4 system-ui;letter-spacing:1.5px;color:#c2edd4}#web-coach p{margin:4px 0 0}#web-coach button{pointer-events:auto;white-space:nowrap;flex-shrink:0;padding:7px 9px;border:1px solid #98b9b9;border-radius:4px;background:#1c3942;color:#eff4e4;font:11px system-ui}.web-coach-symbol{font:bold 30px Georgia;color:#dfc28d}
+#web-art-loading{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px;background:#071820e8;color:#ebead2;font:15px system-ui}#web-art-loading strong{font:28px Georgia}#web-art-loading p{margin:0}#web-art-retry{padding:12px 18px;color:#f1e8c7;background:#183440;border:1px solid #b59b5c;border-radius:5px}
+@media(max-height:540px){#web-coach{bottom:109px;padding:8px 11px;font-size:11px;width:min(550px,calc(100% - 26px))}#web-coach strong{font-size:10px}.web-coach-symbol{font-size:24px}}
+@media(max-width:560px){#web-coach{bottom:192px;font-size:11px;gap:8px;padding:10px}#web-coach button{padding:7px;font-size:10px}.web-coach-symbol{display:none}}
+
+@media(pointer:coarse){#web-coach button{min-height:44px}}

@@ -1,0 +1,1 @@
+button[data-fullscreen],#boot-fullscreen,#fullscreen-button,#fullscreen,.fullscreen-control,[data-action=fullscreen],.row:has([data-action=fullscreen]),[data-wishlist],.wishlist-link,[data-action=wishlist]{display:none!important}html,body{-webkit-user-select:none;user-select:none;overscroll-behavior:none}input,textarea{user-select:text}

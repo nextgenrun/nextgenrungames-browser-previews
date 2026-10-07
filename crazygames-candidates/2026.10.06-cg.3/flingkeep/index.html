@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d1921">
+  <meta name="description" content="Flingkeep: The Ash Campaign. 150 sieges, ten tyrants, and one castle built by your choices.">
+  <title>Flingkeep — The Ash Campaign</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='7' fill='%23211b25'/%3E%3Cpath fill='%23c39066' d='M8 10h5v6h5v-6h5v6h5v-6h5v24H8z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="citadel.css">
+  <link rel="stylesheet" href="armory.css">
+  <script defer src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script><script defer src="crazygames-platform.js"></script>
+  <script defer src="platform-adapter.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="assets.js"></script>
+  <script defer src="injuries.js"></script>
+  <script defer src="physics.js"></script>
+  <script defer src="core.js"></script>
+  <script defer src="barracks.js"></script>
+  <script defer src="cinematics.js"></script>
+  <script defer src="landscapes.js"></script>
+  <script defer src="gore.js"></script>
+  <script defer src="renderer.js"></script>
+  <script defer src="citadel.js"></script>
+  <script defer src="articulated.js"></script>
+  <script defer src="armory.js"></script>
+  <script defer src="voices-data.js"></script>
+  <script defer src="voices.js"></script>
+  <script defer src="audio.js"></script>
+  <script defer src="content-profile.js"></script><script src="fling-first-play.js" defer></script><script defer src="game.js"></script>
+<link rel="stylesheet" href="crazygames.css"><link rel="stylesheet" href="fling-first-play.css"></head>
+<body>
+<main id="app">
+  <header class="masthead">
+    <div class="brand"><span class="brand-icon">♜</span><span>FLINGKEEP<span class="brand-dot">.</span><small>THE ASH CAMPAIGN</small></span></div>
+    <div class="campaign-mark">150 SIEGES <i>·</i> 10 TYRANTS <i>·</i> ONE KEEP</div>
+    <nav class="tools" aria-label="Game tools"><button id="armory-button" title="Manual weapons and upgrades">Armory</button><button id="codex-button" title="Enemy codex and asset library">Codex</button><button id="settings-button" title="Sound, display, and campaign saves">Settings</button><button id="fullscreen" data-fullscreen aria-label="Enter fullscreen" title="Fullscreen · F"><span aria-hidden="true">⛶</span><span class="fullscreen-label">Fullscreen</span><kbd>F</kbd></button></nav>
+  </header>
+  <section class="game-frame" aria-label="Flingkeep campaign">
+    <div class="hud">
+      <div class="castle-stat"><span data-icon="resource-health"></span><div><div class="stat-label">THE KEEP <strong id="health-text">150 / 150</strong></div><div class="meter health" role="progressbar" aria-label="Castle health" aria-valuemin="0" aria-valuemax="150" aria-valuenow="150"><i id="health-bar"></i></div><small id="shield-text">Unshielded</small></div></div>
+      <div class="wave-stat"><span class="stat-label" id="region-label">THE CINDER MARCH</span><strong id="wave-text">Siege 1 <em>/ 150</em></strong><small id="battle-status"></small></div>
+      <div class="treasury"><span data-icon="resource-gold"></span><div><span class="stat-label">WAR CHEST</span><strong id="gold-text">70</strong></div></div>
+      <div class="hud-actions"><button id="fullscreen-battle" class="square-button" data-fullscreen aria-label="Enter fullscreen" title="Fullscreen · F">⛶</button><button id="pause" class="square-button" aria-label="Pause game" disabled>Ⅱ</button></div>
+    </div>
+    <div id="stage" class="stage">
+      <canvas id="game" width="1200" height="700" tabindex="0" aria-label="Battlefield. Grab an invader by the clicked body part and drag or release to throw. Drag the floating weapon backward, hold its draw, and release to shoot. Q switches between hand and the equipped manual weapon; B also works. Hold to draw, aim, then release to shoot without stamina. Quick shots fall short. Right mouse also draws the equipped weapon. Space grips or drops in hand mode, or draws and shoots in weapon mode. 1, W, and E cast unlocked spells."></canvas>
+      <div id="boss-bar" class="boss-bar" hidden><div><span id="boss-name"></span><b id="boss-health"></b></div><div class="meter"><i id="boss-fill"></i></div></div>
+      <div id="cinematic-caption" class="cinematic-caption" hidden><span id="cinematic-subtitle"></span><strong id="cinematic-name"></strong></div>
+      <div id="voice-caption" class="voice-caption" hidden><small id="voice-speaker"></small><strong id="voice-line"></strong></div>
+      <div id="announcement" class="announcement" aria-live="polite"></div>
+      <div id="overlay" class="overlay"></div>
+      <aside id="tactics" class="tactics" hidden><span id="target-role"></span><strong id="target-name"></strong><p id="target-strength"></p><p id="target-weakness"></p><div class="hold-meter"><i id="hold-fill"></i></div><small id="hold-status"></small></aside>
+      <div id="chaos" class="chaos" hidden><strong id="chaos-word">CHAOS</strong><div><i id="chaos-fill"></i></div><small id="chaos-count"></small></div>
+      <div id="battle-hint" class="battle-hint" hidden></div>
+      <div id="toast" class="toast" role="status"></div>
+    </div>
+    <div class="battle-deck">
+      <div class="combat-modes" role="group" aria-label="Weapons · Q to switch"><button id="mode-hand" aria-label="Telekinetic hand" aria-pressed="true" aria-keyshortcuts="Q B" title="Telekinetic hand · Q to switch weapons (B also works)"><span data-icon="upgrade-grip"></span></button><button id="mode-bow" aria-label="Floating bow" aria-pressed="false" aria-keyshortcuts="Q B" title="Equipped manual weapon · Q to switch"><span data-icon="upgrade-archers"></span></button><button id="open-armory" aria-label="Open armory" title="Armory · manual weapons and upgrades"><span data-icon="upgrade-salvage"></span></button><kbd title="Q · Switch weapons" aria-hidden="true">Q</kbd></div>
+      <div class="weapon-resource" aria-label="Manual weapon readiness"><div class="stat-label"><span id="weapon-label">BOW</span><strong id="weapon-ready">READY</strong></div><div class="meter weapon"><i id="weapon-ready-bar"></i></div></div>
+      <div class="hand-resource" title="Stamina · heavy enemies use more"><div class="stat-label">HAND <strong id="energy-text">100</strong></div><div class="meter energy"><i id="energy-bar"></i></div></div>
+      <div class="mana-resource" title="Mana · 1 / W / E to cast"><div class="stat-label">MANA <strong id="mana-text">70</strong></div><div class="meter mana"><i id="mana-bar"></i></div></div>
+      <div class="spells"><button id="spell-frost" disabled title="Winter seal: buy in The occult"><kbd>1</kbd><span data-icon="upgrade-frost"></span><span class="spell-label">Winter seal</span><small>LOCKED</small></button><button id="spell-meteor" disabled title="Falling star: buy in The occult"><kbd>W</kbd><span data-icon="upgrade-meteor"></span><span class="spell-label">Falling star</span><small>LOCKED</small></button><button id="spell-storm" disabled title="Storm spire: buy in The occult"><kbd>E</kbd><span data-icon="upgrade-storm"></span><span class="spell-label">Storm spire</span><small>LOCKED</small></button></div>
+    </div>
+  </section>
+  <div class="below-game"><span id="save-status">Campaign progress saves between sieges.</span><span>Medium / Hard · Mouse or touch · Landscape recommended</span></div>
+</main>
+<input id="import-save" type="file" accept="application/json,.json" hidden>
+</body>
+</html>
